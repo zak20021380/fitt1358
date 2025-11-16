@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 500" width="400" height="500">
+  <defs>
+    <linearGradient id="bg1b" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#fbbf24;stop-opacity:0.3" />
+      <stop offset="100%" style="stop-color:#f59e0b;stop-opacity:0.3" />
+    </linearGradient>
+  </defs>
+  <rect width="400" height="500" fill="url(#bg1b)"/>
+
+  <!-- Person silhouette - before (slightly overweight) -->
+  <ellipse cx="200" cy="180" rx="45" ry="50" fill="#94a3b8"/>
+  <rect x="155" y="225" width="90" height="120" rx="45" fill="#94a3b8"/>
+  <rect x="145" y="250" width="30" height="110" rx="15" fill="#94a3b8"/>
+  <rect x="225" y="250" width="30" height="110" rx="15" fill="#94a3b8"/>
+  <rect x="170" y="340" width="25" height="130" rx="12" fill="#94a3b8"/>
+  <rect x="205" y="340" width="25" height="130" rx="12" fill="#94a3b8"/>
+
+  <!-- Label -->
+  <rect x="20" y="430" width="360" height="50" rx="8" fill="#000" opacity="0.5"/>
+  <text x="200" y="462" font-family="Arial" font-size="24" fill="#fff" text-anchor="middle" font-weight="bold">BEFORE</text>
+</svg>
