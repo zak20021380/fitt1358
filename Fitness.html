@@ -961,7 +961,346 @@
             border-top: 1px solid rgba(255, 255, 255, 0.1);
             color: #b7b7b7;
         }
-        
+
+        /* ============================
+           BMI CALCULATOR SECTION
+           ============================ */
+        .bmi-calculator-wrapper {
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+
+        .bmi-intro {
+            text-align: center;
+            margin-bottom: 3rem;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .bmi-intro p {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            color: #b7b7b7;
+        }
+
+        .bmi-calculator-container {
+            display: grid;
+            gap: 2rem;
+            grid-template-columns: 1fr;
+        }
+
+        .bmi-card {
+            background: #1e2127;
+            border-radius: 16px;
+            border: 2px solid rgba(255, 255, 255, 0.1);
+            overflow: hidden;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.4), 0 0 60px rgba(59, 130, 246, 0.1);
+            transition: all 0.3s ease;
+        }
+
+        .bmi-card:hover {
+            border-color: rgba(59, 130, 246, 0.3);
+            box-shadow: 0 12px 50px rgba(0, 0, 0, 0.5), 0 0 80px rgba(59, 130, 246, 0.15);
+        }
+
+        .bmi-card-header {
+            background: linear-gradient(135deg, rgba(59, 130, 246, 0.15), rgba(34, 197, 94, 0.1));
+            border-bottom: 2px solid rgba(59, 130, 246, 0.3);
+            padding: 1.5rem 2rem;
+        }
+
+        .bmi-card-header h3 {
+            margin: 0;
+            color: #3B82F6;
+            text-shadow: 0 0 15px rgba(59, 130, 246, 0.4);
+            font-size: 1.3rem;
+        }
+
+        .bmi-input-section form {
+            padding: 2rem;
+        }
+
+        .label-icon {
+            margin-left: 0.5rem;
+            font-size: 1.2rem;
+        }
+
+        .bmi-calculate-btn {
+            width: 100%;
+            margin-top: 1rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+            font-size: 1.1rem;
+        }
+
+        .btn-icon {
+            font-size: 1.3rem;
+        }
+
+        .bmi-result-content {
+            padding: 2rem;
+        }
+
+        .bmi-value-display {
+            text-align: center;
+            margin-bottom: 2.5rem;
+            padding: 2rem;
+            background: linear-gradient(135deg, rgba(59, 130, 246, 0.1), rgba(34, 197, 94, 0.05));
+            border-radius: 16px;
+            border: 2px solid rgba(59, 130, 246, 0.2);
+        }
+
+        .bmi-label {
+            font-size: 1rem;
+            color: #b7b7b7;
+            margin-bottom: 1rem;
+            font-weight: 600;
+        }
+
+        .bmi-value {
+            font-size: 4rem;
+            font-weight: 900;
+            color: #3B82F6;
+            text-shadow: 0 0 30px rgba(59, 130, 246, 0.5);
+            line-height: 1;
+        }
+
+        .bmi-gauge-container {
+            margin-bottom: 2.5rem;
+        }
+
+        .bmi-gauge {
+            position: relative;
+            height: 30px;
+            background: linear-gradient(to left,
+                #ef4444 0%,
+                #f59e0b 25%,
+                #22c55e 50%,
+                #3b82f6 75%,
+                #6366f1 100%
+            );
+            border-radius: 15px;
+            overflow: hidden;
+            margin-bottom: 1rem;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3), inset 0 2px 10px rgba(0, 0, 0, 0.2);
+        }
+
+        .bmi-pointer {
+            position: absolute;
+            top: -8px;
+            width: 4px;
+            height: 46px;
+            background: #eaeaea;
+            border-radius: 2px;
+            box-shadow: 0 0 15px rgba(234, 234, 234, 0.8), 0 4px 10px rgba(0, 0, 0, 0.5);
+            transition: right 0.6s cubic-bezier(0.34, 1.56, 0.64, 1);
+            right: 50%;
+            transform: translateX(50%);
+            z-index: 2;
+        }
+
+        .bmi-pointer::before {
+            content: '▼';
+            position: absolute;
+            top: -18px;
+            right: 50%;
+            transform: translateX(50%);
+            color: #eaeaea;
+            font-size: 1rem;
+            text-shadow: 0 0 10px rgba(234, 234, 234, 0.8);
+        }
+
+        .bmi-gauge-labels {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 0.5rem;
+            margin-top: 1rem;
+        }
+
+        .gauge-label {
+            text-align: center;
+            font-size: 0.85rem;
+            font-weight: 600;
+            padding: 0.5rem;
+            border-radius: 8px;
+            background: rgba(255, 255, 255, 0.05);
+        }
+
+        .gauge-label.underweight { color: #6366f1; }
+        .gauge-label.normal { color: #22c55e; }
+        .gauge-label.overweight { color: #f59e0b; }
+        .gauge-label.obese { color: #ef4444; }
+
+        .bmi-category {
+            text-align: center;
+            margin-bottom: 2.5rem;
+            padding: 1.5rem;
+            background: rgba(255, 255, 255, 0.03);
+            border-radius: 12px;
+        }
+
+        .category-badge {
+            display: inline-block;
+            padding: 0.8rem 2rem;
+            border-radius: 50px;
+            font-size: 1.2rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: all 0.3s ease;
+        }
+
+        .category-badge.underweight {
+            background: linear-gradient(135deg, #6366f1, #8b5cf6);
+            color: #eaeaea;
+            box-shadow: 0 0 25px rgba(99, 102, 241, 0.4);
+        }
+
+        .category-badge.normal {
+            background: linear-gradient(135deg, #22c55e, #16a34a);
+            color: #eaeaea;
+            box-shadow: 0 0 25px rgba(34, 197, 94, 0.4);
+        }
+
+        .category-badge.overweight {
+            background: linear-gradient(135deg, #f59e0b, #d97706);
+            color: #eaeaea;
+            box-shadow: 0 0 25px rgba(245, 158, 11, 0.4);
+        }
+
+        .category-badge.obese {
+            background: linear-gradient(135deg, #ef4444, #dc2626);
+            color: #eaeaea;
+            box-shadow: 0 0 25px rgba(239, 68, 68, 0.4);
+        }
+
+        .category-description {
+            font-size: 1rem;
+            color: #b7b7b7;
+            margin: 0;
+            line-height: 1.6;
+        }
+
+        .bmi-recommendation {
+            margin-bottom: 2.5rem;
+            padding: 1.5rem;
+            background: linear-gradient(135deg, rgba(59, 130, 246, 0.1), rgba(34, 197, 94, 0.05));
+            border-radius: 12px;
+            border-right: 4px solid #3B82F6;
+        }
+
+        .bmi-recommendation h4 {
+            color: #3B82F6;
+            margin-bottom: 1rem;
+            font-size: 1.1rem;
+            text-shadow: 0 0 10px rgba(59, 130, 246, 0.3);
+        }
+
+        .bmi-recommendation ul {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
+
+        .bmi-recommendation li {
+            padding: 0.6rem 0;
+            color: #eaeaea;
+            line-height: 1.6;
+            position: relative;
+            padding-right: 1.5rem;
+        }
+
+        .bmi-recommendation li::before {
+            content: "✓";
+            position: absolute;
+            right: 0;
+            color: #22c55e;
+            font-weight: 700;
+        }
+
+        .bmi-ranges-info {
+            background: rgba(255, 255, 255, 0.03);
+            padding: 1.5rem;
+            border-radius: 12px;
+        }
+
+        .bmi-ranges-info h4 {
+            text-align: center;
+            color: #eaeaea;
+            margin-bottom: 1.5rem;
+            font-size: 1.1rem;
+        }
+
+        .ranges-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1rem;
+        }
+
+        .range-item {
+            padding: 1rem;
+            border-radius: 10px;
+            text-align: center;
+            border: 2px solid;
+            transition: all 0.3s ease;
+        }
+
+        .range-item:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+        }
+
+        .range-item.underweight-range {
+            border-color: #6366f1;
+            background: rgba(99, 102, 241, 0.1);
+        }
+
+        .range-item.normal-range {
+            border-color: #22c55e;
+            background: rgba(34, 197, 94, 0.1);
+        }
+
+        .range-item.overweight-range {
+            border-color: #f59e0b;
+            background: rgba(245, 158, 11, 0.1);
+        }
+
+        .range-item.obese-range {
+            border-color: #ef4444;
+            background: rgba(239, 68, 68, 0.1);
+        }
+
+        .range-value {
+            display: block;
+            font-size: 1.1rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+            color: #eaeaea;
+        }
+
+        .range-label {
+            display: block;
+            font-size: 0.9rem;
+            color: #b7b7b7;
+        }
+
+        @keyframes bmiPulse {
+            0%, 100% {
+                transform: scale(1);
+            }
+            50% {
+                transform: scale(1.05);
+            }
+        }
+
+        .bmi-value.calculated {
+            animation: bmiPulse 0.6s ease;
+        }
+
         /* ============================
            RESPONSIVE DESIGN
            ============================ */
@@ -1027,6 +1366,14 @@
             .services-grid {
                 grid-template-columns: repeat(4, 1fr);
             }
+
+            .bmi-calculator-container {
+                grid-template-columns: 1fr 1.2fr;
+            }
+
+            .ranges-grid {
+                grid-template-columns: repeat(4, 1fr);
+            }
         }
     </style>
 </head>
@@ -1053,6 +1400,7 @@
                 
                 <ul class="nav-menu">
                     <li><a href="#about">درباره من</a></li>
+                    <li><a href="#bmi">محاسبه BMI</a></li>
                     <li><a href="#services">خدمات</a></li>
                     <li><a href="#results">نتایج شاگردان</a></li>
                     <li><a href="#pricing">تعرفه‌ها</a></li>
@@ -1071,6 +1419,7 @@
         <div class="mobile-menu" id="mobileMenu">
             <ul>
                 <li><a href="#about">درباره من</a></li>
+                <li><a href="#bmi">محاسبه BMI</a></li>
                 <li><a href="#services">خدمات</a></li>
                 <li><a href="#results">نتایج شاگردان</a></li>
                 <li><a href="#pricing">تعرفه‌ها</a></li>
@@ -1175,6 +1524,116 @@
                     <h3 style="color: #3B82F6; text-shadow: 0 0 15px rgba(59, 130, 246, 0.4);">✓ برنامه پیشنهادی شما</h3>
                     <p id="previewText" style="color: #eaeaea;"></p>
                     <a href="#contact" class="btn btn-primary" style="margin-top: 1rem;">ثبت نهایی و دریافت برنامه کامل</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================
+         BMI CALCULATOR SECTION
+         ============================ -->
+    <section id="bmi" class="section" style="background: rgba(17, 26, 31, 0.5);">
+        <div class="container">
+            <h2 class="section-title fade-in">محاسبه شاخص توده بدنی (BMI)</h2>
+
+            <div class="bmi-calculator-wrapper fade-in">
+                <div class="bmi-intro">
+                    <p>شاخص توده بدنی (BMI) یکی از معیارهای مهم برای ارزیابی وضعیت سلامت و تناسب اندام شماست. با وارد کردن قد و وزن خود، می‌توانید به سرعت وضعیت فعلی بدن خود را بررسی کنید.</p>
+                </div>
+
+                <div class="bmi-calculator-container">
+                    <div class="bmi-input-section">
+                        <div class="bmi-card">
+                            <div class="bmi-card-header">
+                                <h3>اطلاعات خود را وارد کنید</h3>
+                            </div>
+
+                            <form id="bmiForm">
+                                <div class="form-group">
+                                    <label for="bmiWeight">
+                                        <span class="label-icon">⚖️</span>
+                                        وزن (کیلوگرم)
+                                    </label>
+                                    <input type="number" id="bmiWeight" name="bmiWeight" placeholder="مثال: 75" step="0.1" min="20" max="300" required>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="bmiHeight">
+                                        <span class="label-icon">📏</span>
+                                        قد (سانتی‌متر)
+                                    </label>
+                                    <input type="number" id="bmiHeight" name="bmiHeight" placeholder="مثال: 175" step="0.1" min="100" max="250" required>
+                                </div>
+
+                                <button type="submit" class="btn btn-primary bmi-calculate-btn">
+                                    <span class="btn-icon">🧮</span>
+                                    محاسبه BMI
+                                </button>
+                            </form>
+                        </div>
+                    </div>
+
+                    <div class="bmi-result-section" id="bmiResultSection">
+                        <div class="bmi-card">
+                            <div class="bmi-card-header">
+                                <h3>نتیجه محاسبه</h3>
+                            </div>
+
+                            <div class="bmi-result-content">
+                                <div class="bmi-value-display">
+                                    <div class="bmi-label">شاخص BMI شما</div>
+                                    <div class="bmi-value" id="bmiValue">--</div>
+                                </div>
+
+                                <div class="bmi-gauge-container">
+                                    <div class="bmi-gauge">
+                                        <div class="bmi-gauge-fill" id="bmiGaugeFill"></div>
+                                        <div class="bmi-pointer" id="bmiPointer"></div>
+                                    </div>
+                                    <div class="bmi-gauge-labels">
+                                        <span class="gauge-label underweight">کمبود وزن</span>
+                                        <span class="gauge-label normal">طبیعی</span>
+                                        <span class="gauge-label overweight">اضافه وزن</span>
+                                        <span class="gauge-label obese">چاقی</span>
+                                    </div>
+                                </div>
+
+                                <div class="bmi-category" id="bmiCategory">
+                                    <div class="category-badge" id="categoryBadge">--</div>
+                                    <p class="category-description" id="categoryDescription">لطفاً وزن و قد خود را وارد کنید</p>
+                                </div>
+
+                                <div class="bmi-recommendation" id="bmiRecommendation">
+                                    <h4>توصیه‌های سلامت</h4>
+                                    <ul id="recommendationList">
+                                        <li>برای مشاهده توصیه‌ها، ابتدا BMI خود را محاسبه کنید</li>
+                                    </ul>
+                                </div>
+
+                                <div class="bmi-ranges-info">
+                                    <h4>دسته‌بندی استاندارد BMI</h4>
+                                    <div class="ranges-grid">
+                                        <div class="range-item underweight-range">
+                                            <span class="range-value">کمتر از 18.5</span>
+                                            <span class="range-label">کمبود وزن</span>
+                                        </div>
+                                        <div class="range-item normal-range">
+                                            <span class="range-value">18.5 - 24.9</span>
+                                            <span class="range-label">وزن طبیعی</span>
+                                        </div>
+                                        <div class="range-item overweight-range">
+                                            <span class="range-value">25 - 29.9</span>
+                                            <span class="range-label">اضافه وزن</span>
+                                        </div>
+                                        <div class="range-item obese-range">
+                                            <span class="range-value">30 و بالاتر</span>
+                                            <span class="range-label">چاقی</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -1782,13 +2241,136 @@
         });
 
         // ==================
+        // BMI CALCULATOR
+        // ==================
+        const bmiForm = document.getElementById('bmiForm');
+        const bmiValue = document.getElementById('bmiValue');
+        const bmiPointer = document.getElementById('bmiPointer');
+        const categoryBadge = document.getElementById('categoryBadge');
+        const categoryDescription = document.getElementById('categoryDescription');
+        const recommendationList = document.getElementById('recommendationList');
+
+        bmiForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+
+            const weight = parseFloat(document.getElementById('bmiWeight').value);
+            const height = parseFloat(document.getElementById('bmiHeight').value);
+
+            if (weight > 0 && height > 0) {
+                // Calculate BMI: weight (kg) / (height (m))^2
+                const heightInMeters = height / 100;
+                const bmi = weight / (heightInMeters * heightInMeters);
+                const bmiRounded = bmi.toFixed(1);
+
+                // Update BMI value with animation
+                bmiValue.classList.remove('calculated');
+                setTimeout(() => {
+                    bmiValue.textContent = bmiRounded;
+                    bmiValue.classList.add('calculated');
+                }, 50);
+
+                // Update pointer position
+                // BMI ranges: <18.5 (underweight), 18.5-24.9 (normal), 25-29.9 (overweight), 30+ (obese)
+                // Gauge is reversed (right to left): obese(0%) -> normal(50%) -> underweight(100%)
+                let pointerPosition;
+                if (bmi < 18.5) {
+                    // Underweight: 75%-100% (right side)
+                    pointerPosition = 75 + ((18.5 - bmi) / 18.5) * 25;
+                    if (pointerPosition > 100) pointerPosition = 100;
+                } else if (bmi < 25) {
+                    // Normal: 50%-75%
+                    pointerPosition = 50 + ((25 - bmi) / 6.5) * 25;
+                } else if (bmi < 30) {
+                    // Overweight: 25%-50%
+                    pointerPosition = 25 + ((30 - bmi) / 5) * 25;
+                } else {
+                    // Obese: 0%-25%
+                    pointerPosition = Math.max(0, 25 - ((bmi - 30) / 10) * 25);
+                }
+
+                bmiPointer.style.right = pointerPosition + '%';
+
+                // Determine category and update display
+                let category, categoryText, description, recommendations;
+
+                if (bmi < 18.5) {
+                    category = 'underweight';
+                    categoryText = 'کمبود وزن';
+                    description = 'وزن شما کمتر از حد طبیعی است. برای رسیدن به وزن ایده‌آل، نیاز به افزایش توده عضلانی دارید.';
+                    recommendations = [
+                        'برنامه تمرینی قدرتی با تمرکز روی افزایش حجم عضلانی',
+                        'افزایش کالری دریافتی روزانه با رژیم غذایی مناسب',
+                        'مصرف پروتئین کافی (حداقل 2 گرم به ازای هر کیلو وزن بدن)',
+                        'استراحت کافی و خواب منظم برای رشد عضلات',
+                        'مشاوره با متخصص تغذیه برای برنامه افزایش وزن سالم'
+                    ];
+                } else if (bmi < 25) {
+                    category = 'normal';
+                    categoryText = 'وزن طبیعی';
+                    description = 'تبریک! وزن شما در محدوده سالم قرار دارد. برای حفظ این وضعیت، به تمرینات منظم و تغذیه متعادل ادامه دهید.';
+                    recommendations = [
+                        'حفظ تمرینات منظم (حداقل 3-4 روز در هفته)',
+                        'تغذیه متعادل با ترکیب مناسب پروتئین، کربوهیدرات و چربی سالم',
+                        'تمرینات قدرتی برای حفظ و افزایش توده عضلانی',
+                        'فعالیت‌های هوازی برای سلامت قلب و عروق',
+                        'پیگیری مداوم وزن و درصد چربی بدن'
+                    ];
+                } else if (bmi < 30) {
+                    category = 'overweight';
+                    categoryText = 'اضافه وزن';
+                    description = 'وزن شما کمی بالاتر از حد طبیعی است. با برنامه مناسب می‌توانید به وزن ایده‌آل برسید و سلامتی خود را بهبود بخشید.';
+                    recommendations = [
+                        'برنامه تمرینی ترکیبی (قدرتی + هوازی) برای کاهش چربی',
+                        'کاهش تدریجی کالری دریافتی (کسری 300-500 کالری)',
+                        'افزایش فعالیت روزانه و قدم زدن',
+                        'مصرف بیشتر سبزیجات و پروتئین، کاهش کربوهیدرات ساده',
+                        'پیگیری هفتگی وزن و اندازه‌گیری پیشرفت'
+                    ];
+                } else {
+                    category = 'obese';
+                    categoryText = 'چاقی';
+                    description = 'وزن شما به طور قابل توجهی بالاتر از حد طبیعی است. توصیه می‌شود با یک متخصص مشاوره کنید و برنامه تخصصی دریافت کنید.';
+                    recommendations = [
+                        'مشاوره با پزشک و متخصص تغذیه برای بررسی کامل وضعیت سلامت',
+                        'شروع با تمرینات کم‌فشار و افزایش تدریجی شدت',
+                        'رژیم غذایی کنترل‌شده با کسری کالری معقول',
+                        'پیگیری دقیق تغییرات وزن و درصد چربی',
+                        'تمرکز روی تغییرات سبک زندگی پایدار، نه رژیم‌های شوک‌آور',
+                        'دریافت برنامه تخصصی و پیگیری مستمر توسط مربی حرفه‌ای'
+                    ];
+                }
+
+                // Update category badge
+                categoryBadge.className = 'category-badge ' + category;
+                categoryBadge.textContent = categoryText;
+
+                // Update description
+                categoryDescription.textContent = description;
+
+                // Update recommendations
+                recommendationList.innerHTML = '';
+                recommendations.forEach(rec => {
+                    const li = document.createElement('li');
+                    li.textContent = rec;
+                    recommendationList.appendChild(li);
+                });
+
+                // Scroll to results
+                document.getElementById('bmiResultSection').scrollIntoView({
+                    behavior: 'smooth',
+                    block: 'nearest'
+                });
+            }
+        });
+
+        // ==================
         // CONTACT FORM
         // ==================
         const contactForm = document.getElementById('contactForm');
-        
+
         contactForm.addEventListener('submit', (e) => {
             e.preventDefault();
-            
+
             alert('درخواست شما با موفقیت ثبت شد! به زودی با شما تماس خواهیم گرفت.');
             contactForm.reset();
         });
