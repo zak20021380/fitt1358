@@ -1,0 +1,1713 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>دکتر حامد جولازاده | مربی تخصصی بدنسازی و تناسب اندام</title>
+    <meta name="description" content="برنامه تمرینی و تغذیه اختصاصی توسط دکتر حامد جولازاده - مربی تخصصی بدنسازی با رویکرد علمی">
+    
+    <!-- Vazirmatn Font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    
+    <style>
+        /* ============================
+           GLOBAL RESET & BASE STYLES
+           ============================ */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        html {
+            direction: rtl;
+            scroll-behavior: smooth;
+            font-size: 16px;
+        }
+        
+        body {
+            font-family: 'Vazirmatn', 'Tahoma', sans-serif;
+            background: #050509;
+            color: #e0e0e0;
+            line-height: 1.7;
+            overflow-x: hidden;
+        }
+        
+        /* ============================
+           TYPOGRAPHY
+           ============================ */
+        h1, h2, h3, h4, h5, h6 {
+            font-weight: 800;
+            line-height: 1.3;
+            margin-bottom: 1rem;
+            color: #ffffff;
+        }
+        
+        h1 { font-size: 2.5rem; }
+        h2 { font-size: 2rem; }
+        h3 { font-size: 1.5rem; }
+        
+        p {
+            margin-bottom: 1rem;
+            color: #b0b0b0;
+        }
+        
+        /* ============================
+           UTILITIES
+           ============================ */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 1.5rem;
+        }
+        
+        .section {
+            padding: 4rem 0;
+            position: relative;
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 3rem;
+            font-size: 2.5rem;
+            background: linear-gradient(135deg, #22c55e, #38bdf8);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .neon-text {
+            color: #22c55e;
+            text-shadow: 0 0 10px rgba(34, 197, 94, 0.5);
+        }
+        
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.6s ease, transform 0.6s ease;
+        }
+        
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        /* ============================
+           BUTTONS
+           ============================ */
+        .btn {
+            display: inline-block;
+            padding: 1rem 2.5rem;
+            border-radius: 50px;
+            font-weight: 700;
+            font-size: 1rem;
+            text-decoration: none;
+            border: none;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            min-height: 44px;
+            text-align: center;
+        }
+        
+        .btn-primary {
+            background: linear-gradient(135deg, #22c55e, #16a34a);
+            color: #050509;
+            box-shadow: 0 0 20px rgba(34, 197, 94, 0.4);
+        }
+        
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 0 30px rgba(34, 197, 94, 0.6);
+        }
+        
+        .btn-secondary {
+            background: transparent;
+            color: #22c55e;
+            border: 2px solid #22c55e;
+        }
+        
+        .btn-secondary:hover {
+            background: #22c55e;
+            color: #050509;
+        }
+        
+        /* ============================
+           HEADER & NAVIGATION
+           ============================ */
+        .header {
+            position: fixed;
+            top: 0;
+            right: 0;
+            left: 0;
+            background: rgba(5, 5, 9, 0.95);
+            backdrop-filter: blur(10px);
+            padding: 1rem 0;
+            z-index: 1000;
+            border-bottom: 1px solid rgba(34, 197, 94, 0.1);
+        }
+        
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .brand {
+            font-size: 1.5rem;
+            font-weight: 900;
+            color: #22c55e;
+            text-decoration: none;
+        }
+        
+        .nav-menu {
+            display: none;
+            gap: 2rem;
+            list-style: none;
+        }
+        
+        .nav-menu a {
+            color: #e0e0e0;
+            text-decoration: none;
+            font-weight: 600;
+            transition: color 0.3s;
+        }
+        
+        .nav-menu a:hover {
+            color: #22c55e;
+        }
+        
+        .hamburger {
+            display: flex;
+            flex-direction: column;
+            gap: 5px;
+            cursor: pointer;
+            z-index: 1001;
+        }
+        
+        .hamburger span {
+            width: 30px;
+            height: 3px;
+            background: #22c55e;
+            border-radius: 3px;
+            transition: all 0.3s;
+        }
+        
+        .hamburger.active span:nth-child(1) {
+            transform: rotate(45deg) translate(8px, 8px);
+        }
+        
+        .hamburger.active span:nth-child(2) {
+            opacity: 0;
+        }
+        
+        .hamburger.active span:nth-child(3) {
+            transform: rotate(-45deg) translate(8px, -8px);
+        }
+        
+        .mobile-menu {
+            position: fixed;
+            top: 0;
+            right: -100%;
+            width: 80%;
+            max-width: 400px;
+            height: 100vh;
+            background: rgba(5, 5, 9, 0.98);
+            backdrop-filter: blur(20px);
+            padding: 6rem 2rem 2rem;
+            transition: right 0.3s ease;
+            z-index: 999;
+            border-left: 1px solid rgba(34, 197, 94, 0.2);
+        }
+        
+        .mobile-menu.active {
+            right: 0;
+        }
+        
+        .mobile-menu ul {
+            list-style: none;
+        }
+        
+        .mobile-menu li {
+            margin-bottom: 2rem;
+        }
+        
+        .mobile-menu a {
+            color: #e0e0e0;
+            text-decoration: none;
+            font-size: 1.3rem;
+            font-weight: 600;
+            transition: color 0.3s;
+        }
+        
+        .mobile-menu a:hover {
+            color: #22c55e;
+        }
+        
+        /* ============================
+           HERO SECTION
+           ============================ */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            background: linear-gradient(135deg, rgba(5, 5, 9, 0.9), rgba(15, 15, 25, 0.9)),
+                        url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 1000"><rect fill="%23050509" width="1000" height="1000"/><circle cx="500" cy="500" r="300" fill="%2322c55e" opacity="0.05"/></svg>');
+            background-size: cover;
+            background-position: center;
+            padding-top: 5rem;
+        }
+        
+        .hero-content {
+            display: grid;
+            gap: 3rem;
+            align-items: center;
+        }
+        
+        .hero-text h1 {
+            font-size: 2.5rem;
+            margin-bottom: 1.5rem;
+            line-height: 1.2;
+        }
+        
+        .hero-text p {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+            color: #b0b0b0;
+        }
+        
+        .hero-buttons {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+        
+        .hero-image {
+            position: relative;
+            width: 100%;
+            max-width: 400px;
+            margin: 0 auto;
+        }
+        
+        .hero-card {
+            background: linear-gradient(135deg, rgba(34, 197, 94, 0.1), rgba(56, 189, 248, 0.1));
+            border: 2px solid rgba(34, 197, 94, 0.3);
+            border-radius: 20px;
+            padding: 3rem 2rem;
+            text-align: center;
+            box-shadow: 0 20px 60px rgba(34, 197, 94, 0.2);
+        }
+        
+        .athlete-silhouette {
+            width: 200px;
+            height: 200px;
+            background: linear-gradient(135deg, #22c55e, #38bdf8);
+            border-radius: 50%;
+            margin: 0 auto 1rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 5rem;
+        }
+        
+        /* ============================
+           ASSESSMENT FORM SECTION
+           ============================ */
+        .assessment-section {
+            background: linear-gradient(180deg, rgba(15, 15, 25, 0.5), rgba(5, 5, 9, 0.5));
+        }
+        
+        .assessment-form {
+            max-width: 700px;
+            margin: 0 auto;
+            background: rgba(20, 20, 30, 0.6);
+            padding: 2.5rem;
+            border-radius: 20px;
+            border: 1px solid rgba(34, 197, 94, 0.2);
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
+        }
+        
+        .form-intro {
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+        
+        .form-intro h3 {
+            color: #22c55e;
+            margin-bottom: 0.5rem;
+        }
+        
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+            color: #e0e0e0;
+        }
+        
+        .gender-toggle {
+            display: flex;
+            gap: 1rem;
+        }
+        
+        .gender-toggle input[type="radio"] {
+            display: none;
+        }
+        
+        .gender-toggle label {
+            flex: 1;
+            padding: 0.8rem;
+            text-align: center;
+            border: 2px solid rgba(34, 197, 94, 0.3);
+            border-radius: 10px;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+        
+        .gender-toggle input[type="radio"]:checked + label {
+            background: #22c55e;
+            color: #050509;
+            border-color: #22c55e;
+        }
+        
+        .form-group input,
+        .form-group select {
+            width: 100%;
+            padding: 0.8rem 1rem;
+            background: rgba(5, 5, 9, 0.8);
+            border: 2px solid rgba(34, 197, 94, 0.2);
+            border-radius: 10px;
+            color: #e0e0e0;
+            font-family: 'Vazirmatn', sans-serif;
+            font-size: 1rem;
+        }
+        
+        .form-group input:focus,
+        .form-group select:focus {
+            outline: none;
+            border-color: #22c55e;
+            box-shadow: 0 0 10px rgba(34, 197, 94, 0.3);
+        }
+        
+        .preview-card {
+            display: none;
+            margin-top: 2rem;
+            padding: 2rem;
+            background: linear-gradient(135deg, rgba(34, 197, 94, 0.1), rgba(56, 189, 248, 0.1));
+            border: 2px solid #22c55e;
+            border-radius: 15px;
+        }
+        
+        .preview-card.show {
+            display: block;
+            animation: slideDown 0.5s ease;
+        }
+        
+        @keyframes slideDown {
+            from {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        /* ============================
+           ABOUT SECTION
+           ============================ */
+        .about-content {
+            max-width: 900px;
+            margin: 0 auto;
+            text-align: center;
+        }
+        
+        .about-content p {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            margin-bottom: 2rem;
+        }
+        
+        .about-features {
+            display: grid;
+            gap: 1.5rem;
+            margin-top: 3rem;
+        }
+        
+        .feature-item {
+            display: flex;
+            align-items: center;
+            gap: 1.5rem;
+            padding: 1.5rem;
+            background: rgba(20, 20, 30, 0.6);
+            border-radius: 15px;
+            border: 1px solid rgba(34, 197, 94, 0.2);
+            transition: all 0.3s;
+        }
+        
+        .feature-item:hover {
+            transform: translateX(-5px);
+            border-color: #22c55e;
+        }
+        
+        .feature-icon {
+            font-size: 3rem;
+            min-width: 60px;
+        }
+        
+        .feature-text h4 {
+            color: #22c55e;
+            margin-bottom: 0.5rem;
+        }
+        
+        /* ============================
+           SERVICES SECTION
+           ============================ */
+        .services-grid {
+            display: grid;
+            gap: 2rem;
+        }
+        
+        .service-card {
+            background: rgba(20, 20, 30, 0.6);
+            padding: 2.5rem;
+            border-radius: 20px;
+            border: 2px solid rgba(34, 197, 94, 0.2);
+            text-align: center;
+            transition: all 0.3s;
+        }
+        
+        .service-card:hover {
+            transform: translateY(-10px);
+            border-color: #22c55e;
+            box-shadow: 0 0 30px rgba(34, 197, 94, 0.3);
+        }
+        
+        .service-icon {
+            font-size: 4rem;
+            margin-bottom: 1.5rem;
+        }
+        
+        .service-card h3 {
+            color: #22c55e;
+            margin-bottom: 1rem;
+        }
+        
+        /* ============================
+           GALLERY SECTION
+           ============================ */
+        .gallery-grid {
+            display: grid;
+            gap: 2rem;
+        }
+        
+        .transformation-card {
+            background: rgba(20, 20, 30, 0.6);
+            border-radius: 20px;
+            overflow: hidden;
+            border: 1px solid rgba(34, 197, 94, 0.2);
+        }
+        
+        .transformation-images {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+        }
+        
+        .transformation-img {
+            aspect-ratio: 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 3rem;
+            font-weight: 800;
+            position: relative;
+        }
+        
+        .transformation-img.before {
+            background: linear-gradient(135deg, rgba(239, 68, 68, 0.3), rgba(220, 38, 38, 0.3));
+        }
+        
+        .transformation-img.after {
+            background: linear-gradient(135deg, rgba(34, 197, 94, 0.3), rgba(22, 163, 74, 0.3));
+        }
+        
+        .transformation-label {
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            background: rgba(5, 5, 9, 0.9);
+            padding: 0.5rem 1rem;
+            border-radius: 50px;
+            font-size: 0.9rem;
+            font-weight: 700;
+        }
+        
+        .transformation-desc {
+            padding: 1.5rem;
+            text-align: center;
+        }
+        
+        .transformation-desc h4 {
+            color: #22c55e;
+            margin-bottom: 0.5rem;
+        }
+        
+        /* ============================
+           TESTIMONIALS SECTION
+           ============================ */
+        .testimonials-slider {
+            max-width: 900px;
+            margin: 0 auto;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .testimonials-track {
+            display: flex;
+            transition: transform 0.5s ease;
+        }
+        
+        .testimonial-card {
+            min-width: 100%;
+            padding: 3rem;
+            background: rgba(20, 20, 30, 0.6);
+            border-radius: 20px;
+            border: 2px solid rgba(34, 197, 94, 0.2);
+            text-align: center;
+        }
+        
+        .testimonial-text {
+            font-size: 1.2rem;
+            font-style: italic;
+            margin-bottom: 1.5rem;
+            color: #e0e0e0;
+            line-height: 1.8;
+        }
+        
+        .testimonial-author {
+            font-weight: 700;
+            color: #22c55e;
+        }
+        
+        .slider-controls {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            margin-top: 2rem;
+        }
+        
+        .slider-dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: rgba(34, 197, 94, 0.3);
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+        
+        .slider-dot.active {
+            background: #22c55e;
+            transform: scale(1.3);
+        }
+        
+        /* ============================
+           PRICING SECTION
+           ============================ */
+        .pricing-grid {
+            display: grid;
+            gap: 2rem;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+        
+        .pricing-card {
+            background: rgba(20, 20, 30, 0.6);
+            padding: 2.5rem;
+            border-radius: 20px;
+            border: 2px solid rgba(34, 197, 94, 0.2);
+            text-align: center;
+            position: relative;
+            transition: all 0.3s;
+        }
+        
+        .pricing-card:hover {
+            transform: translateY(-10px);
+            border-color: #22c55e;
+        }
+        
+        .pricing-card.popular {
+            border-color: #22c55e;
+            box-shadow: 0 0 40px rgba(34, 197, 94, 0.3);
+        }
+        
+        .popular-badge {
+            position: absolute;
+            top: -15px;
+            right: 50%;
+            transform: translateX(50%);
+            background: linear-gradient(135deg, #22c55e, #16a34a);
+            color: #050509;
+            padding: 0.5rem 1.5rem;
+            border-radius: 50px;
+            font-weight: 700;
+            font-size: 0.9rem;
+        }
+        
+        .pricing-card h3 {
+            margin-bottom: 0.5rem;
+        }
+        
+        .pricing-duration {
+            color: #b0b0b0;
+            margin-bottom: 1.5rem;
+        }
+        
+        .pricing-price {
+            font-size: 2.5rem;
+            font-weight: 900;
+            color: #22c55e;
+            margin-bottom: 2rem;
+        }
+        
+        .pricing-features {
+            list-style: none;
+            margin-bottom: 2rem;
+            text-align: right;
+        }
+        
+        .pricing-features li {
+            padding: 0.8rem 0;
+            border-bottom: 1px solid rgba(34, 197, 94, 0.1);
+        }
+        
+        .pricing-features li:before {
+            content: "✓ ";
+            color: #22c55e;
+            font-weight: 700;
+            margin-left: 0.5rem;
+        }
+        
+        /* ============================
+           FAQ SECTION
+           ============================ */
+        .faq-container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .faq-item {
+            background: rgba(20, 20, 30, 0.6);
+            border-radius: 15px;
+            margin-bottom: 1rem;
+            border: 1px solid rgba(34, 197, 94, 0.2);
+            overflow: hidden;
+        }
+        
+        .faq-question {
+            padding: 1.5rem;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-weight: 700;
+            color: #e0e0e0;
+            transition: all 0.3s;
+        }
+        
+        .faq-question:hover {
+            color: #22c55e;
+        }
+        
+        .faq-icon {
+            font-size: 1.5rem;
+            transition: transform 0.3s;
+        }
+        
+        .faq-item.active .faq-icon {
+            transform: rotate(45deg);
+        }
+        
+        .faq-answer {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease;
+        }
+        
+        .faq-answer-content {
+            padding: 0 1.5rem 1.5rem;
+            color: #b0b0b0;
+            line-height: 1.8;
+        }
+        
+        /* ============================
+           CONTACT SECTION
+           ============================ */
+        .contact-content {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+        
+        .contact-intro {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+        
+        .contact-grid {
+            display: grid;
+            gap: 2rem;
+        }
+        
+        .contact-form {
+            background: rgba(20, 20, 30, 0.6);
+            padding: 2.5rem;
+            border-radius: 20px;
+            border: 1px solid rgba(34, 197, 94, 0.2);
+        }
+        
+        .contact-links {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+        
+        .contact-link {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            padding: 1.5rem;
+            background: rgba(20, 20, 30, 0.6);
+            border-radius: 15px;
+            border: 2px solid rgba(34, 197, 94, 0.2);
+            text-decoration: none;
+            color: #e0e0e0;
+            transition: all 0.3s;
+        }
+        
+        .contact-link:hover {
+            border-color: #22c55e;
+            transform: translateX(-5px);
+        }
+        
+        .contact-link-icon {
+            font-size: 2.5rem;
+        }
+        
+        .contact-link-text h4 {
+            color: #22c55e;
+            margin-bottom: 0.3rem;
+        }
+        
+        /* ============================
+           FOOTER
+           ============================ */
+        .footer {
+            background: rgba(5, 5, 9, 0.95);
+            padding: 3rem 0 1.5rem;
+            border-top: 1px solid rgba(34, 197, 94, 0.2);
+        }
+        
+        .footer-content {
+            display: grid;
+            gap: 2rem;
+            margin-bottom: 2rem;
+            text-align: center;
+        }
+        
+        .footer-brand h3 {
+            color: #22c55e;
+            margin-bottom: 0.5rem;
+        }
+        
+        .footer-links ul {
+            list-style: none;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 1.5rem;
+        }
+        
+        .footer-links a {
+            color: #b0b0b0;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        
+        .footer-links a:hover {
+            color: #22c55e;
+        }
+        
+        .footer-social {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+        }
+        
+        .social-icon {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background: rgba(34, 197, 94, 0.1);
+            border: 2px solid rgba(34, 197, 94, 0.3);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            text-decoration: none;
+            transition: all 0.3s;
+        }
+        
+        .social-icon:hover {
+            background: #22c55e;
+            border-color: #22c55e;
+            transform: translateY(-3px);
+        }
+        
+        .footer-bottom {
+            text-align: center;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(34, 197, 94, 0.1);
+            color: #808080;
+        }
+        
+        /* ============================
+           RESPONSIVE DESIGN
+           ============================ */
+        @media (min-width: 768px) {
+            h1 { font-size: 3.5rem; }
+            h2 { font-size: 2.5rem; }
+            
+            .section {
+                padding: 6rem 0;
+            }
+            
+            .nav-menu {
+                display: flex;
+            }
+            
+            .hamburger {
+                display: none;
+            }
+            
+            .hero-content {
+                grid-template-columns: 1fr 1fr;
+            }
+            
+            .hero-buttons {
+                flex-direction: row;
+            }
+            
+            .about-features {
+                grid-template-columns: 1fr 1fr;
+            }
+            
+            .services-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            
+            .gallery-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            
+            .contact-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+            
+            .footer-content {
+                grid-template-columns: repeat(3, 1fr);
+                text-align: right;
+            }
+            
+            .footer-links ul {
+                justify-content: flex-start;
+            }
+            
+            .footer-social {
+                justify-content: flex-end;
+            }
+        }
+        
+        @media (min-width: 1024px) {
+            .pricing-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+            
+            .services-grid {
+                grid-template-columns: repeat(4, 1fr);
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- ============================
+         HEADER & NAVIGATION
+         ============================ -->
+    <header class="header">
+        <div class="container">
+            <nav class="nav-container">
+                <a href="#" class="brand">دکتر حامد جولازاده</a>
+                
+                <ul class="nav-menu">
+                    <li><a href="#about">درباره من</a></li>
+                    <li><a href="#services">خدمات</a></li>
+                    <li><a href="#results">نتایج شاگردان</a></li>
+                    <li><a href="#pricing">تعرفه‌ها</a></li>
+                    <li><a href="#faq">سوالات متداول</a></li>
+                    <li><a href="#contact">تماس و نوبت‌گیری</a></li>
+                </ul>
+                
+                <div class="hamburger" id="hamburger">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            </nav>
+        </div>
+        
+        <div class="mobile-menu" id="mobileMenu">
+            <ul>
+                <li><a href="#about">درباره من</a></li>
+                <li><a href="#services">خدمات</a></li>
+                <li><a href="#results">نتایج شاگردان</a></li>
+                <li><a href="#pricing">تعرفه‌ها</a></li>
+                <li><a href="#faq">سوالات متداول</a></li>
+                <li><a href="#contact">تماس و نوبت‌گیری</a></li>
+            </ul>
+        </div>
+    </header>
+
+    <!-- ============================
+         HERO SECTION
+         ============================ -->
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <div class="hero-text fade-in">
+                    <h1>برنامه تمرینی کاملاً <span class="neon-text">اختصاصی</span> برای بدن تو</h1>
+                    <p>طراحی برنامه تمرین و تغذیه بر اساس قد، وزن، هدف و سبک زندگی شما - با رویکرد علمی و نتایج قابل اندازه‌گیری</p>
+                    <div class="hero-buttons">
+                        <a href="#assessment" class="btn btn-primary">درخواست برنامه شخصی‌سازی‌شده</a>
+                        <a href="#results" class="btn btn-secondary">مشاهده نتایج شاگردان</a>
+                    </div>
+                </div>
+                
+                <div class="hero-image fade-in">
+                    <div class="hero-card">
+                        <div class="athlete-silhouette">💪</div>
+                        <h3>تبدیل علمی بدن</h3>
+                        <p>از مبتدی تا حرفه‌ای</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================
+         ASSESSMENT FORM SECTION
+         ============================ -->
+    <section id="assessment" class="section assessment-section">
+        <div class="container">
+            <h2 class="section-title fade-in">ارزیابی هوشمند اولیه</h2>
+            
+            <div class="assessment-form fade-in">
+                <div class="form-intro">
+                    <h3>چند تا اطلاعات ساده وارد کن</h3>
+                    <p>تا نوع برنامه مناسب بدنت را بهت پیشنهاد بدهم</p>
+                </div>
+                
+                <form id="assessmentForm">
+                    <div class="form-group">
+                        <label>جنسیت</label>
+                        <div class="gender-toggle">
+                            <input type="radio" id="male" name="gender" value="male" checked>
+                            <label for="male">مرد</label>
+                            <input type="radio" id="female" name="gender" value="female">
+                            <label for="female">زن</label>
+                        </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="age">سن (سال)</label>
+                        <input type="number" id="age" name="age" placeholder="مثال: ۲۸" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="height">قد (سانتی‌متر)</label>
+                        <input type="number" id="height" name="height" placeholder="مثال: ۱۷۵" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="weight">وزن (کیلوگرم)</label>
+                        <input type="number" id="weight" name="weight" placeholder="مثال: ۷۵" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="goal">هدف شما</label>
+                        <select id="goal" name="goal" required>
+                            <option value="">انتخاب کنید</option>
+                            <option value="bulk">افزایش حجم عضلانی</option>
+                            <option value="cut">کاهش چربی</option>
+                            <option value="tone">فرم‌دهی و تعریف عضلات</option>
+                            <option value="fitness">تناسب اندام کلی</option>
+                        </select>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="level">سطح تجربه</label>
+                        <select id="level" name="level" required>
+                            <option value="">انتخاب کنید</option>
+                            <option value="beginner">مبتدی</option>
+                            <option value="intermediate">متوسط</option>
+                            <option value="advanced">حرفه‌ای</option>
+                        </select>
+                    </div>
+                    
+                    <button type="submit" class="btn btn-primary" style="width: 100%;">مشاهده پیش‌نمایش برنامه</button>
+                </form>
+                
+                <div id="previewCard" class="preview-card">
+                    <h3 style="color: #22c55e;">✓ برنامه پیشنهادی شما</h3>
+                    <p id="previewText" style="color: #e0e0e0;"></p>
+                    <a href="#contact" class="btn btn-primary" style="margin-top: 1rem;">ثبت نهایی و دریافت برنامه کامل</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================
+         ABOUT SECTION
+         ============================ -->
+    <section id="about" class="section">
+        <div class="container">
+            <h2 class="section-title fade-in">چرا دکتر حامد جولازاده؟</h2>
+            
+            <div class="about-content fade-in">
+                <p>با بیش از ۸ سال تجربه در زمینه مربی‌گری تخصصی بدنسازی و تناسب اندام، من برنامه‌های تمرینی و تغذیه‌ای کاملاً شخصی‌سازی‌شده طراحی می‌کنم که برای هر فرد به صورت منحصر به فرد تنظیم شده‌اند. رویکرد من مبتنی بر علم، داده و نتایج قابل اندازه‌گیری است - نه برنامه‌های کپی‌شده و تکراری.</p>
+                
+                <p>هدف من این است که شما به بهترین نسخه از خودتان تبدیل شوید - با برنامه‌ای که با سبک زندگی، محدودیت‌ها و اهدافتان سازگار است.</p>
+                
+                <div class="about-features">
+                    <div class="feature-item fade-in">
+                        <div class="feature-icon">🎓</div>
+                        <div class="feature-text">
+                            <h4>تخصص و تجربه</h4>
+                            <p>بیش از ۸ سال سابقه در مربی‌گری تخصصی بدنسازی و آمادگی جسمانی</p>
+                        </div>
+                    </div>
+                    
+                    <div class="feature-item fade-in">
+                        <div class="feature-icon">🔬</div>
+                        <div class="feature-text">
+                            <h4>رویکرد علمی</h4>
+                            <p>برنامه‌ها بر اساس آخرین تحقیقات علمی، نه برنامه‌های آماده و تکراری</p>
+                        </div>
+                    </div>
+                    
+                    <div class="feature-item fade-in">
+                        <div class="feature-icon">📊</div>
+                        <div class="feature-text">
+                            <h4>پیگیری مستمر</h4>
+                            <p>چک‌این‌های هفتگی و تنظیم برنامه براساس پیشرفت شما</p>
+                        </div>
+                    </div>
+                    
+                    <div class="feature-item fade-in">
+                        <div class="feature-icon">💼</div>
+                        <div class="feature-text">
+                            <h4>مناسب افراد شاغل</h4>
+                            <p>برنامه‌هایی که با زندگی پرمشغله و کم‌وقت شما سازگار است</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================
+         SERVICES SECTION
+         ============================ -->
+    <section id="services" class="section" style="background: rgba(15, 15, 25, 0.5);">
+        <div class="container">
+            <h2 class="section-title fade-in">خدمات من</h2>
+            
+            <div class="services-grid">
+                <div class="service-card fade-in">
+                    <div class="service-icon">🏋️</div>
+                    <h3>برنامه تمرینی اختصاصی</h3>
+                    <p>طراحی کامل برنامه تمرینی بر اساس هدف، سطح و امکانات شما - قابل اجرا در باشگاه یا منزل</p>
+                </div>
+                
+                <div class="service-card fade-in">
+                    <div class="service-icon">🥗</div>
+                    <h3>برنامه تغذیه</h3>
+                    <p>رژیم غذایی شخصی‌سازی‌شده برای چربی‌سوزی یا افزایش حجم عضلانی با محاسبه دقیق کالری و ماکروها</p>
+                </div>
+                
+                <div class="service-card fade-in">
+                    <div class="service-icon">💪</div>
+                    <h3>برنامه افزایش حجم</h3>
+                    <p>برنامه‌های تخصصی برای افزایش توده عضلانی با تمرکز بر حجم، قدرت و تعریف عضلات</p>
+                </div>
+                
+                <div class="service-card fade-in">
+                    <div class="service-icon">📱</div>
+                    <h3>کوچینگ آنلاین</h3>
+                    <p>پشتیبانی ۲۴ ساعته، چک‌این‌های هفتگی و تنظیم مداوم برنامه براساس پیشرفت شما</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================
+         TRANSFORMATION GALLERY
+         ============================ -->
+    <section id="results" class="section">
+        <div class="container">
+            <h2 class="section-title fade-in">نتایج شاگردان</h2>
+            
+            <div class="gallery-grid">
+                <div class="transformation-card fade-in">
+                    <div class="transformation-images">
+                        <div class="transformation-img before">
+                            <span class="transformation-label">قبل</span>
+                            🏃
+                        </div>
+                        <div class="transformation-img after">
+                            <span class="transformation-label">بعد</span>
+                            💪
+                        </div>
+                    </div>
+                    <div class="transformation-desc">
+                        <h4>کاهش ۸ کیلو چربی در ۳ ماه</h4>
+                        <p>درصد چربی از ۲۴٪ به ۱۵٪ رسیده - با حفظ توده عضلانی</p>
+                    </div>
+                </div>
+                
+                <div class="transformation-card fade-in">
+                    <div class="transformation-images">
+                        <div class="transformation-img before">
+                            <span class="transformation-label">قبل</span>
+                            🙍
+                        </div>
+                        <div class="transformation-img after">
+                            <span class="transformation-label">بعد</span>
+                            🦸
+                        </div>
+                    </div>
+                    <div class="transformation-desc">
+                        <h4>افزایش ۶ کیلو عضله خشک</h4>
+                        <p>بهبود قابل توجه در فرم و تعریف عضلات شانه و سینه</p>
+                    </div>
+                </div>
+                
+                <div class="transformation-card fade-in">
+                    <div class="transformation-images">
+                        <div class="transformation-img before">
+                            <span class="transformation-label">قبل</span>
+                            😰
+                        </div>
+                        <div class="transformation-img after">
+                            <span class="transformation-label">بعد</span>
+                            😎
+                        </div>
+                    </div>
+                    <div class="transformation-desc">
+                        <h4>تحول کامل در ۶ ماه</h4>
+                        <p>کاهش ۱۲ کیلو وزن و افزایش توان جسمانی ۷۰٪</p>
+                    </div>
+                </div>
+                
+                <div class="transformation-card fade-in">
+                    <div class="transformation-images">
+                        <div class="transformation-img before">
+                            <span class="transformation-label">قبل</span>
+                            🤔
+                        </div>
+                        <div class="transformation-img after">
+                            <span class="transformation-label">بعد</span>
+                            🔥
+                        </div>
+                    </div>
+                    <div class="transformation-desc">
+                        <h4>فرم‌دهی و تعریف عضلات</h4>
+                        <p>رسیدن به فرم ایده‌آل با برنامه ۴ ماهه تخصصی</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================
+         TESTIMONIALS SECTION
+         ============================ -->
+    <section class="section" style="background: rgba(15, 15, 25, 0.5);">
+        <div class="container">
+            <h2 class="section-title fade-in">نظرات شاگردان</h2>
+            
+            <div class="testimonials-slider fade-in">
+                <div class="testimonials-track" id="testimonialsTrack">
+                    <div class="testimonial-card">
+                        <p class="testimonial-text">«برنامه‌های دکتر جولازاده واقعاً قابل اجرا هستند. من که شغل پرفشاری دارم، تونستم با برنامه‌شون پیشرفت خوبی بگیرم. خیلی دقیق و علمی کار می‌کنند.»</p>
+                        <p class="testimonial-author">— امیر ح.</p>
+                    </div>
+                    
+                    <div class="testimonial-card">
+                        <p class="testimonial-text">«بعد از سال‌ها تلاش بی‌نتیجه، بالاخره با کمک ایشون به اهدافم رسیدم. صبور و پاسخگو هستند و برنامه رو مرتب براساس پیشرفت من تنظیم می‌کنند.»</p>
+                        <p class="testimonial-author">— رضا م.</p>
+                    </div>
+                    
+                    <div class="testimonial-card">
+                        <p class="testimonial-text">«من مبتدی بودم و هیچ تجربه‌ای نداشتم. ایشون از صفر بهم آموزش دادن و الان بعد از ۴ ماه، نتایج باورنکردنی گرفتم. واقعاً ممنونم.»</p>
+                        <p class="testimonial-author">— سارا ک.</p>
+                    </div>
+                    
+                    <div class="testimonial-card">
+                        <p class="testimonial-text">«برنامه تغذیه‌شون عالی بود. نه خیلی سخت که نتونم ادامه بدم، نه خیلی ساده که نتیجه نداشته باشه. دقیقاً متناسب با شرایط من طراحی شده بود.»</p>
+                        <p class="testimonial-author">— محمد ت.</p>
+                    </div>
+                    
+                    <div class="testimonial-card">
+                        <p class="testimonial-text">«بهترین تصمیمی که گرفتم. پشتیبانی عالی، برنامه‌های دقیق و نتایج واقعی. حالا خودم رو تو آینه نمی‌شناسم!»</p>
+                        <p class="testimonial-author">— علی ف.</p>
+                    </div>
+                </div>
+                
+                <div class="slider-controls" id="sliderControls"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================
+         PRICING SECTION
+         ============================ -->
+    <section id="pricing" class="section">
+        <div class="container">
+            <h2 class="section-title fade-in">تعرفه برنامه‌ها</h2>
+            
+            <div class="pricing-grid">
+                <div class="pricing-card fade-in">
+                    <h3>استاندارد</h3>
+                    <p class="pricing-duration">یک ماه</p>
+                    <div class="pricing-price">۹۸۰٬۰۰۰ تومان</div>
+                    <ul class="pricing-features">
+                        <li>برنامه تمرینی اختصاصی</li>
+                        <li>برنامه تغذیه پایه</li>
+                        <li>یک چک‌این هفتگی</li>
+                        <li>پشتیبانی تلگرامی</li>
+                    </ul>
+                    <a href="#contact" class="btn btn-secondary" style="width: 100%;">درخواست این پلن</a>
+                </div>
+                
+                <div class="pricing-card popular fade-in">
+                    <div class="popular-badge">محبوب‌ترین</div>
+                    <h3>پرو</h3>
+                    <p class="pricing-duration">سه ماه</p>
+                    <div class="pricing-price">۱٬۴۹۰٬۰۰۰ تومان</div>
+                    <ul class="pricing-features">
+                        <li>برنامه تمرینی پیشرفته</li>
+                        <li>برنامه تغذیه کامل</li>
+                        <li>دو چک‌این هفتگی</li>
+                        <li>پشتیبانی ۲۴ ساعته</li>
+                        <li>ویدیوهای آموزشی</li>
+                        <li>تنظیم مداوم برنامه</li>
+                    </ul>
+                    <a href="#contact" class="btn btn-primary" style="width: 100%;">درخواست این پلن</a>
+                </div>
+                
+                <div class="pricing-card fade-in">
+                    <h3>وی‌آی‌پی</h3>
+                    <p class="pricing-duration">شش ماه</p>
+                    <div class="pricing-price">۲٬۶۹۰٬۰۰۰ تومان</div>
+                    <ul class="pricing-features">
+                        <li>برنامه تمرینی حرفه‌ای</li>
+                        <li>برنامه تغذیه پیشرفته</li>
+                        <li>چک‌این‌های نامحدود</li>
+                        <li>پشتیبانی اختصاصی</li>
+                        <li>جلسات مشاوره ویدیویی</li>
+                        <li>تحلیل آزمایشات</li>
+                        <li>برنامه مکمل‌یار</li>
+                    </ul>
+                    <a href="#contact" class="btn btn-secondary" style="width: 100%;">درخواست این پلن</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================
+         FAQ SECTION
+         ============================ -->
+    <section id="faq" class="section" style="background: rgba(15, 15, 25, 0.5);">
+        <div class="container">
+            <h2 class="section-title fade-in">سوالات متداول</h2>
+            
+            <div class="faq-container">
+                <div class="faq-item fade-in">
+                    <div class="faq-question">
+                        <span>برنامه‌ها چطور ارسال می‌شوند؟</span>
+                        <span class="faq-icon">+</span>
+                    </div>
+                    <div class="faq-answer">
+                        <div class="faq-answer-content">
+                            بعد از تکمیل فرم و پرداخت، ظرف ۲۴ ساعت برنامه کامل تمرینی و تغذیه‌ای به صورت فایل PDF و همچنین از طریق اپلیکیشن تلگرام یا واتساپ برای شما ارسال می‌شود. همچنین دسترسی به پنل آنلاین برای پیگیری پیشرفت به شما داده می‌شود.
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="faq-item fade-in">
+                    <div class="faq-question">
+                        <span>اگر باشگاه نروم چه کنم؟</span>
+                        <span class="faq-icon">+</span>
+                    </div>
+                    <div class="faq-answer">
+                        <div class="faq-answer-content">
+                            بدون مشکل! برنامه‌های من کاملاً قابل تنظیم هستند. می‌تونم برنامه تمرینی منزل با حداقل تجهیزات (دمبل، کش، وزن بدن) برای شما طراحی کنم که همان نتایج رو داشته باشه.
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="faq-item fade-in">
+                    <div class="faq-question">
+                        <span>آیا برای افراد مبتدی هم مناسب است؟</span>
+                        <span class="faq-icon">+</span>
+                    </div>
+                    <div class="faq-answer">
+                        <div class="faq-answer-content">
+                            قطعاً! حتی اگر هیچ تجربه‌ای نداشته باشید، من برنامه را از صفر و با آموزش کامل حرکات شروع می‌کنم. ویدیوهای آموزشی هر حرکت هم در اختیارتون قرار می‌گیره تا با فرم صحیح تمرین کنید.
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="faq-item fade-in">
+                    <div class="faq-question">
+                        <span>آیا برنامه تغذیه سخت و محدودکننده است؟</span>
+                        <span class="faq-icon">+</span>
+                    </div>
+                    <div class="faq-answer">
+                        <div class="faq-answer-content">
+                            نه اصلاً! من برنامه تغذیه رو براساس غذاهای محلی ایرانی و علاقه‌مندی‌های شما طراحی می‌کنم. هدف این نیست که شما گرسنه بمونید یا از غذاهای مورد علاقه‌تون محروم بشید، بلکه یاد می‌گیرید چطور هوشمندانه غذا بخورید.
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="faq-item fade-in">
+                    <div class="faq-question">
+                        <span>چک‌این‌ها چطور انجام می‌شود؟</span>
+                        <span class="faq-icon">+</span>
+                    </div>
+                    <div class="faq-answer">
+                        <div class="faq-answer-content">
+                            هر هفته یا هر دو هفته (بسته به پلن انتخابی) شما وزن، عکس‌های پیشرفت و اطلاعات تمریناتتون رو برام ارسال می‌کنید. من براساس این داده‌ها برنامه رو تنظیم می‌کنم و بازخورد کامل بهتون می‌دم.
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="faq-item fade-in">
+                    <div class="faq-question">
+                        <span>در چه زمانی نتیجه می‌گیرم؟</span>
+                        <span class="faq-icon">+</span>
+                    </div>
+                    <div class="faq-answer">
+                        <div class="faq-answer-content">
+                            اولین تغییرات قابل مشاهده معمولاً بعد از ۴-۶ هفته دیده می‌شود. اما برای نتایج قابل توجه و پایدار، حداقل ۳ ماه زمان نیاز هست. البته سرعت پیشرفت به عوامل مختلفی مثل ژنتیک، پایبندی به برنامه و سطح اولیه بستگی داره.
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================
+         CONTACT SECTION
+         ============================ -->
+    <section id="contact" class="section">
+        <div class="container">
+            <h2 class="section-title fade-in">درخواست برنامه یا مشاوره</h2>
+            
+            <div class="contact-content">
+                <div class="contact-intro fade-in">
+                    <p>برای دریافت برنامه اختصاصی یا مشاوره رایگان، می‌تونید از طریق فرم زیر، واتساپ یا اینستاگرام باهام در تماس باشید. معمولاً ظرف چند ساعت پاسخ می‌دم.</p>
+                </div>
+                
+                <div class="contact-grid">
+                    <div class="contact-form fade-in">
+                        <form id="contactForm">
+                            <div class="form-group">
+                                <label for="fullname">نام و نام خانوادگی</label>
+                                <input type="text" id="fullname" name="fullname" required>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="phone">شماره تماس</label>
+                                <input type="tel" id="phone" name="phone" placeholder="۰۹۱۲۳۴۵۶۷۸۹" required>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="message">هدف کلی شما</label>
+                                <select id="message" name="message" required>
+                                    <option value="">انتخاب کنید</option>
+                                    <option value="bulk">افزایش حجم عضلانی</option>
+                                    <option value="cut">کاهش چربی</option>
+                                    <option value="tone">فرم‌دهی</option>
+                                    <option value="consultation">مشاوره رایگان</option>
+                                </select>
+                            </div>
+                            
+                            <button type="submit" class="btn btn-primary" style="width: 100%;">ارسال درخواست</button>
+                        </form>
+                    </div>
+                    
+                    <div class="contact-links">
+                        <a href="https://wa.me/989123456789" class="contact-link fade-in">
+                            <div class="contact-link-icon">💬</div>
+                            <div class="contact-link-text">
+                                <h4>واتساپ</h4>
+                                <p>پاسخگویی سریع</p>
+                            </div>
+                        </a>
+                        
+                        <a href="https://instagram.com/dr.hamedjolazadeh" class="contact-link fade-in">
+                            <div class="contact-link-icon">📸</div>
+                            <div class="contact-link-text">
+                                <h4>اینستاگرام</h4>
+                                <p>@dr.hamedjolazadeh</p>
+                            </div>
+                        </a>
+                        
+                        <a href="tel:+989123456789" class="contact-link fade-in">
+                            <div class="contact-link-icon">📞</div>
+                            <div class="contact-link-text">
+                                <h4>تماس مستقیم</h4>
+                                <p>۰۹۱۲ ۳۴۵ ۶۷۸۹</p>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================
+         FOOTER
+         ============================ -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <h3>دکتر حامد جولازاده</h3>
+                    <p>مربی تخصصی بدنسازی و تناسب اندام</p>
+                </div>
+                
+                <div class="footer-links">
+                    <h4 style="margin-bottom: 1rem;">دسترسی سریع</h4>
+                    <ul>
+                        <li><a href="#about">درباره من</a></li>
+                        <li><a href="#services">خدمات</a></li>
+                        <li><a href="#pricing">تعرفه‌ها</a></li>
+                        <li><a href="#contact">تماس</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-social">
+                    <a href="https://instagram.com/dr.hamedjolazadeh" class="social-icon">📸</a>
+                    <a href="https://wa.me/989123456789" class="social-icon">💬</a>
+                    <a href="https://t.me/dr_hamedjolazadeh" class="social-icon">✈️</a>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>تمامی حقوق محفوظ است © ۱۴۰۴ دکتر حامد جولازاده</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- ============================
+         JAVASCRIPT
+         ============================ -->
+    <script>
+        // ==================
+        // MOBILE MENU TOGGLE
+        // ==================
+        const hamburger = document.getElementById('hamburger');
+        const mobileMenu = document.getElementById('mobileMenu');
+        
+        hamburger.addEventListener('click', () => {
+            hamburger.classList.toggle('active');
+            mobileMenu.classList.toggle('active');
+        });
+        
+        // Close mobile menu when clicking on a link
+        const mobileMenuLinks = mobileMenu.querySelectorAll('a');
+        mobileMenuLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                hamburger.classList.remove('active');
+                mobileMenu.classList.remove('active');
+            });
+        });
+
+        // ==================
+        // SCROLL ANIMATIONS
+        // ==================
+        const fadeElements = document.querySelectorAll('.fade-in');
+        
+        const fadeObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, {
+            threshold: 0.1
+        });
+        
+        fadeElements.forEach(el => fadeObserver.observe(el));
+
+        // ==================
+        // ASSESSMENT FORM
+        // ==================
+        const assessmentForm = document.getElementById('assessmentForm');
+        const previewCard = document.getElementById('previewCard');
+        const previewText = document.getElementById('previewText');
+        
+        assessmentForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            
+            const formData = new FormData(assessmentForm);
+            const goal = formData.get('goal');
+            const level = formData.get('level');
+            
+            let goalText = '';
+            let levelText = '';
+            let daysText = '';
+            
+            switch(goal) {
+                case 'bulk':
+                    goalText = 'افزایش حجم عضلانی';
+                    daysText = '۴ روزه';
+                    break;
+                case 'cut':
+                    goalText = 'کاهش چربی';
+                    daysText = '۵ روزه';
+                    break;
+                case 'tone':
+                    goalText = 'فرم‌دهی و تعریف عضلات';
+                    daysText = '۴ روزه';
+                    break;
+                case 'fitness':
+                    goalText = 'تناسب اندام کلی';
+                    daysText = '۳ روزه';
+                    break;
+            }
+            
+            switch(level) {
+                case 'beginner':
+                    levelText = 'مبتدی';
+                    break;
+                case 'intermediate':
+                    levelText = 'متوسط';
+                    break;
+                case 'advanced':
+                    levelText = 'حرفه‌ای';
+                    break;
+            }
+            
+            previewText.textContent = `بر اساس اطلاعات شما، یک برنامه ${daysText} با تمرکز روی ${goalText} و مناسب برای سطح ${levelText} پیشنهاد می‌شود. این برنامه شامل تمرینات کامل، برنامه تغذیه و راهنمایی‌های جزئی است که پس از ثبت نهایی، به صورت کاملاً شخصی‌سازی‌شده توسط دکتر حامد جولازاده طراحی و برای شما ارسال می‌شود.`;
+            
+            previewCard.classList.add('show');
+            previewCard.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+        });
+
+        // ==================
+        // TESTIMONIALS SLIDER
+        // ==================
+        const track = document.getElementById('testimonialsTrack');
+        const controlsContainer = document.getElementById('sliderControls');
+        const testimonials = track.querySelectorAll('.testimonial-card');
+        let currentSlide = 0;
+        
+        // Create dots
+        testimonials.forEach((_, index) => {
+            const dot = document.createElement('div');
+            dot.classList.add('slider-dot');
+            if (index === 0) dot.classList.add('active');
+            dot.addEventListener('click', () => goToSlide(index));
+            controlsContainer.appendChild(dot);
+        });
+        
+        const dots = controlsContainer.querySelectorAll('.slider-dot');
+        
+        function goToSlide(index) {
+            currentSlide = index;
+            track.style.transform = `translateX(${index * 100}%)`;
+            
+            dots.forEach(dot => dot.classList.remove('active'));
+            dots[index].classList.add('active');
+        }
+        
+        // Auto slide
+        setInterval(() => {
+            currentSlide = (currentSlide + 1) % testimonials.length;
+            goToSlide(currentSlide);
+        }, 5000);
+
+        // ==================
+        // FAQ ACCORDION
+        // ==================
+        const faqItems = document.querySelectorAll('.faq-item');
+        
+        faqItems.forEach(item => {
+            const question = item.querySelector('.faq-question');
+            const answer = item.querySelector('.faq-answer');
+            
+            question.addEventListener('click', () => {
+                const isActive = item.classList.contains('active');
+                
+                // Close all items
+                faqItems.forEach(i => {
+                    i.classList.remove('active');
+                    i.querySelector('.faq-answer').style.maxHeight = null;
+                });
+                
+                // Open clicked item if it wasn't active
+                if (!isActive) {
+                    item.classList.add('active');
+                    answer.style.maxHeight = answer.scrollHeight + 'px';
+                }
+            });
+        });
+
+        // ==================
+        // CONTACT FORM
+        // ==================
+        const contactForm = document.getElementById('contactForm');
+        
+        contactForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            
+            alert('درخواست شما با موفقیت ثبت شد! به زودی با شما تماس خواهیم گرفت.');
+            contactForm.reset();
+        });
+
+        // ==================
+        // SMOOTH SCROLL
+        // ==================
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+    </script>
+
+</body>
+</html>
