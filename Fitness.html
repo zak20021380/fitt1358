@@ -276,9 +276,33 @@
         }
         
         /* ============================
-           HERO SECTION
+           HERO SECTION - SLIDER
            ============================ */
         .hero {
+            min-height: 100vh;
+            position: relative;
+            overflow: hidden;
+            background: #0f1115;
+            padding-top: 5rem;
+        }
+
+        .hero-slider {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            min-height: 100vh;
+            overflow: hidden;
+        }
+
+        .hero-slider-track {
+            display: flex;
+            transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+            height: 100%;
+        }
+
+        .hero-slide {
+            min-width: 100%;
+            height: 100%;
             min-height: 100vh;
             display: flex;
             align-items: center;
@@ -286,52 +310,57 @@
                         url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 1000"><rect fill="%230f1115" width="1000" height="1000"/><circle cx="500" cy="500" r="300" fill="%233B82F6" opacity="0.08"/><circle cx="300" cy="700" r="200" fill="%2322c55e" opacity="0.05"/></svg>');
             background-size: cover;
             background-position: center;
-            padding-top: 5rem;
         }
 
         .hero-content {
             display: grid;
             gap: 3rem;
             align-items: center;
+            padding: 2rem 0;
         }
 
         .hero-text h1 {
-            font-size: 2.5rem;
+            font-size: 2rem;
             margin-bottom: 1.5rem;
             line-height: 1.2;
+            animation: fadeInUp 0.8s ease-out;
         }
 
         .hero-text p {
-            font-size: 1.2rem;
+            font-size: 1.1rem;
             margin-bottom: 2rem;
             color: #b7b7b7;
+            line-height: 1.7;
+            animation: fadeInUp 0.8s ease-out 0.2s backwards;
         }
 
         .hero-buttons {
             display: flex;
             flex-direction: column;
             gap: 1rem;
+            animation: fadeInUp 0.8s ease-out 0.4s backwards;
         }
 
         .hero-image {
             position: relative;
             width: 100%;
-            max-width: 400px;
+            max-width: 350px;
             margin: 0 auto;
+            animation: fadeInUp 0.8s ease-out 0.3s backwards;
         }
 
         .hero-card {
             background: linear-gradient(135deg, rgba(59, 130, 246, 0.15), rgba(34, 197, 94, 0.1));
             border: 2px solid rgba(59, 130, 246, 0.3);
             border-radius: 20px;
-            padding: 2.5rem 2rem;
+            padding: 2rem 1.5rem;
             text-align: center;
             box-shadow: 0 20px 60px rgba(59, 130, 246, 0.3), 0 0 80px rgba(59, 130, 246, 0.1);
         }
 
         .hero-photo {
-            width: 230px;
-            height: 230px;
+            width: 200px;
+            height: 200px;
             border-radius: 24px;
             overflow: hidden;
             border: 3px solid rgba(59, 130, 246, 0.6);
@@ -344,6 +373,85 @@
             height: 100%;
             object-fit: cover;
             filter: contrast(1.05) saturate(1.1);
+        }
+
+        /* Slider Navigation Buttons */
+        .hero-slider-nav {
+            position: absolute;
+            top: 50%;
+            left: 0;
+            right: 0;
+            transform: translateY(-50%);
+            display: none;
+            justify-content: space-between;
+            padding: 0 2rem;
+            pointer-events: none;
+            z-index: 10;
+        }
+
+        .hero-slider-btn {
+            pointer-events: all;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background: rgba(59, 130, 246, 0.2);
+            backdrop-filter: blur(10px);
+            border: 2px solid rgba(59, 130, 246, 0.4);
+            color: #eaeaea;
+            font-size: 2rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+        }
+
+        .hero-slider-btn:hover {
+            background: rgba(59, 130, 246, 0.4);
+            border-color: #3B82F6;
+            transform: scale(1.1);
+            box-shadow: 0 0 25px rgba(59, 130, 246, 0.5);
+        }
+
+        /* Slider Dots */
+        .hero-slider-dots {
+            position: absolute;
+            bottom: 2rem;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            gap: 0.75rem;
+            z-index: 10;
+        }
+
+        .hero-slider-dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.3);
+            border: 2px solid rgba(59, 130, 246, 0.3);
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .hero-slider-dot.active {
+            background: #3B82F6;
+            border-color: #3B82F6;
+            transform: scale(1.3);
+            box-shadow: 0 0 15px rgba(59, 130, 246, 0.6);
+        }
+
+        /* Fade in animation */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
         }
         
         /* ============================
@@ -967,52 +1075,77 @@
         @media (min-width: 768px) {
             h1 { font-size: 3.5rem; }
             h2 { font-size: 2.5rem; }
-            
+
             .section {
                 padding: 6rem 0;
             }
-            
+
             .nav-menu {
                 display: flex;
             }
-            
+
             .hamburger {
                 display: none;
             }
-            
+
             .hero-content {
                 grid-template-columns: 1fr 1fr;
             }
-            
+
+            .hero-text h1 {
+                font-size: 2.8rem;
+            }
+
+            .hero-text p {
+                font-size: 1.25rem;
+            }
+
             .hero-buttons {
                 flex-direction: row;
             }
-            
+
+            .hero-image {
+                max-width: 400px;
+            }
+
+            .hero-photo {
+                width: 250px;
+                height: 250px;
+            }
+
+            .hero-slider-nav {
+                display: flex;
+            }
+
+            .hero-slider-dots {
+                bottom: 3rem;
+            }
+
             .about-features {
                 grid-template-columns: 1fr 1fr;
             }
-            
+
             .services-grid {
                 grid-template-columns: repeat(2, 1fr);
             }
-            
+
             .gallery-grid {
                 grid-template-columns: repeat(2, 1fr);
             }
-            
+
             .contact-grid {
                 grid-template-columns: 1fr 1fr;
             }
-            
+
             .footer-content {
                 grid-template-columns: repeat(3, 1fr);
                 text-align: right;
             }
-            
+
             .footer-links ul {
                 justify-content: flex-start;
             }
-            
+
             .footer-social {
                 justify-content: flex-end;
             }
@@ -1074,30 +1207,124 @@
     </header>
 
     <!-- ============================
-         HERO SECTION
+         HERO SECTION - SLIDER
          ============================ -->
     <section class="hero">
-        <div class="container">
-            <div class="hero-content">
-                <div class="hero-text fade-in">
-                    <h1>برنامه تمرینی کاملاً <span class="neon-text">اختصاصی</span> برای بدن تو</h1>
-                    <p>طراحی برنامه تمرین و تغذیه بر اساس قد، وزن، هدف و سبک زندگی شما - با رویکرد علمی و نتایج قابل اندازه‌گیری</p>
-                    <div class="hero-buttons">
-                        <a href="#assessment" class="btn btn-primary">درخواست برنامه شخصی‌سازی‌شده</a>
-                        <a href="#results" class="btn btn-secondary">مشاهده نتایج شاگردان</a>
+        <div class="hero-slider">
+            <div class="hero-slider-track" id="heroSliderTrack">
+                <!-- Slide 1 -->
+                <div class="hero-slide">
+                    <div class="container">
+                        <div class="hero-content">
+                            <div class="hero-text fade-in">
+                                <h1>برنامه تمرینی کاملاً <span class="neon-text">اختصاصی</span> برای بدن تو</h1>
+                                <p>طراحی برنامه تمرین و تغذیه بر اساس قد، وزن، هدف و سبک زندگی شما - با رویکرد علمی و نتایج قابل اندازه‌گیری</p>
+                                <div class="hero-buttons">
+                                    <a href="#assessment" class="btn btn-primary">درخواست برنامه شخصی‌سازی‌شده</a>
+                                    <a href="#results" class="btn btn-secondary">مشاهده نتایج شاگردان</a>
+                                </div>
+                            </div>
+
+                            <div class="hero-image fade-in">
+                                <div class="hero-card">
+                                    <div class="hero-photo">
+                                        <img src="https://images.unsplash.com/photo-1534367610401-9f5ed68180aa?auto=format&fit=crop&w=600&q=80" alt="مربی بدنسازی در حال تمرین" loading="lazy">
+                                    </div>
+                                    <h3>تبدیل علمی بدن</h3>
+                                    <p>از مبتدی تا حرفه‌ای</p>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
-                
-                <div class="hero-image fade-in">
-                    <div class="hero-card">
-                        <div class="hero-photo">
-                            <img src="https://images.unsplash.com/photo-1534367610401-9f5ed68180aa?auto=format&fit=crop&w=600&q=80" alt="مربی بدنسازی در حال تمرین" loading="lazy">
+
+                <!-- Slide 2 -->
+                <div class="hero-slide">
+                    <div class="container">
+                        <div class="hero-content">
+                            <div class="hero-text fade-in">
+                                <h1><span class="neon-text">نتایج واقعی</span> از شاگردان واقعی</h1>
+                                <p>بیش از ۵۰۰ نفر با برنامه‌های اختصاصی ما به بدن ایده‌آل خود رسیده‌اند - نوبت شما است!</p>
+                                <div class="hero-buttons">
+                                    <a href="#results" class="btn btn-primary">مشاهده نتایج شاگردان</a>
+                                    <a href="#contact" class="btn btn-secondary">مشاوره رایگان</a>
+                                </div>
+                            </div>
+
+                            <div class="hero-image fade-in">
+                                <div class="hero-card">
+                                    <div class="hero-photo">
+                                        <img src="https://images.unsplash.com/photo-1571019614242-c5c5dee9f50b?auto=format&fit=crop&w=600&q=80" alt="نتایج شاگردان" loading="lazy">
+                                    </div>
+                                    <h3>۵۰۰+ تحول موفق</h3>
+                                    <p>نتایج قابل اندازه‌گیری</p>
+                                </div>
+                            </div>
                         </div>
-                        <h3>تبدیل علمی بدن</h3>
-                        <p>از مبتدی تا حرفه‌ای</p>
+                    </div>
+                </div>
+
+                <!-- Slide 3 -->
+                <div class="hero-slide">
+                    <div class="container">
+                        <div class="hero-content">
+                            <div class="hero-text fade-in">
+                                <h1>پشتیبانی <span class="neon-text">۲۴ ساعته</span> و مشاوره تخصصی</h1>
+                                <p>با ۸ سال تجربه در مربی‌گری و رویکرد علمی، همیشه در کنار شما هستیم تا به اهدافتان برسید</p>
+                                <div class="hero-buttons">
+                                    <a href="#pricing" class="btn btn-primary">مشاهده پکیج‌ها</a>
+                                    <a href="#about" class="btn btn-secondary">درباره من</a>
+                                </div>
+                            </div>
+
+                            <div class="hero-image fade-in">
+                                <div class="hero-card">
+                                    <div class="hero-photo">
+                                        <img src="https://images.unsplash.com/photo-1598971639058-fab3c3109a00?auto=format&fit=crop&w=600&q=80" alt="کوچینگ تخصصی" loading="lazy">
+                                    </div>
+                                    <h3>مشاوره تخصصی</h3>
+                                    <p>۸ سال تجربه حرفه‌ای</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Slide 4 -->
+                <div class="hero-slide">
+                    <div class="container">
+                        <div class="hero-content">
+                            <div class="hero-text fade-in">
+                                <h1>تغذیه <span class="neon-text">هوشمند</span> و قابل اجرا</h1>
+                                <p>برنامه تغذیه براساس غذاهای محلی ایرانی - بدون گرسنگی، بدون محدودیت افراطی، با نتایج پایدار</p>
+                                <div class="hero-buttons">
+                                    <a href="#assessment" class="btn btn-primary">ارزیابی رایگان</a>
+                                    <a href="#services" class="btn btn-secondary">خدمات ما</a>
+                                </div>
+                            </div>
+
+                            <div class="hero-image fade-in">
+                                <div class="hero-card">
+                                    <div class="hero-photo">
+                                        <img src="https://images.unsplash.com/photo-1490645935967-10de6ba17061?auto=format&fit=crop&w=600&q=80" alt="برنامه تغذیه" loading="lazy">
+                                    </div>
+                                    <h3>تغذیه علمی</h3>
+                                    <p>غذاهای محلی و سالم</p>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
+
+            <!-- Slider Navigation -->
+            <div class="hero-slider-nav">
+                <button class="hero-slider-btn hero-slider-prev" id="heroSliderPrev">‹</button>
+                <button class="hero-slider-btn hero-slider-next" id="heroSliderNext">›</button>
+            </div>
+
+            <!-- Slider Dots -->
+            <div class="hero-slider-dots" id="heroSliderDots"></div>
         </div>
     </section>
 
@@ -1642,6 +1869,96 @@
                 mobileMenu.classList.remove('active');
             });
         });
+
+        // ==================
+        // HERO SLIDER
+        // ==================
+        const heroSliderTrack = document.getElementById('heroSliderTrack');
+        const heroSliderDots = document.getElementById('heroSliderDots');
+        const heroSlides = heroSliderTrack.querySelectorAll('.hero-slide');
+        const heroPrevBtn = document.getElementById('heroSliderPrev');
+        const heroNextBtn = document.getElementById('heroSliderNext');
+        let currentHeroSlide = 0;
+        let heroSliderInterval;
+
+        // Create dots for hero slider
+        heroSlides.forEach((_, index) => {
+            const dot = document.createElement('div');
+            dot.classList.add('hero-slider-dot');
+            if (index === 0) dot.classList.add('active');
+            dot.addEventListener('click', () => goToHeroSlide(index));
+            heroSliderDots.appendChild(dot);
+        });
+
+        const heroDots = heroSliderDots.querySelectorAll('.hero-slider-dot');
+
+        function goToHeroSlide(index) {
+            currentHeroSlide = index;
+            heroSliderTrack.style.transform = `translateX(-${index * 100}%)`;
+
+            heroDots.forEach(dot => dot.classList.remove('active'));
+            heroDots[index].classList.add('active');
+
+            // Reset auto-play timer
+            clearInterval(heroSliderInterval);
+            startHeroAutoPlay();
+        }
+
+        function nextHeroSlide() {
+            currentHeroSlide = (currentHeroSlide + 1) % heroSlides.length;
+            goToHeroSlide(currentHeroSlide);
+        }
+
+        function prevHeroSlide() {
+            currentHeroSlide = (currentHeroSlide - 1 + heroSlides.length) % heroSlides.length;
+            goToHeroSlide(currentHeroSlide);
+        }
+
+        function startHeroAutoPlay() {
+            heroSliderInterval = setInterval(nextHeroSlide, 5000);
+        }
+
+        // Navigation buttons
+        heroNextBtn.addEventListener('click', nextHeroSlide);
+        heroPrevBtn.addEventListener('click', prevHeroSlide);
+
+        // Touch/swipe support for mobile
+        let heroTouchStartX = 0;
+        let heroTouchEndX = 0;
+
+        heroSliderTrack.addEventListener('touchstart', (e) => {
+            heroTouchStartX = e.changedTouches[0].screenX;
+        });
+
+        heroSliderTrack.addEventListener('touchend', (e) => {
+            heroTouchEndX = e.changedTouches[0].screenX;
+            handleHeroSwipe();
+        });
+
+        function handleHeroSwipe() {
+            if (heroTouchEndX < heroTouchStartX - 50) {
+                // Swipe left - next slide
+                nextHeroSlide();
+            }
+            if (heroTouchEndX > heroTouchStartX + 50) {
+                // Swipe right - prev slide
+                prevHeroSlide();
+            }
+        }
+
+        // Start auto-play
+        startHeroAutoPlay();
+
+        // Pause auto-play when user hovers over the slider (desktop only)
+        if (window.matchMedia('(min-width: 768px)').matches) {
+            document.querySelector('.hero-slider').addEventListener('mouseenter', () => {
+                clearInterval(heroSliderInterval);
+            });
+
+            document.querySelector('.hero-slider').addEventListener('mouseleave', () => {
+                startHeroAutoPlay();
+            });
+        }
 
         // ==================
         // SCROLL ANIMATIONS
