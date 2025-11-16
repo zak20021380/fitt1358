@@ -160,9 +160,31 @@
         .brand {
             font-size: 1.5rem;
             font-weight: 900;
-            color: #3B82F6;
+            color: #eaeaea;
             text-decoration: none;
             text-shadow: 0 0 20px rgba(59, 130, 246, 0.5);
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+
+        .brand-logo {
+            width: 48px;
+            height: 48px;
+            border-radius: 14px;
+            overflow: hidden;
+            border: 2px solid rgba(59, 130, 246, 0.6);
+            box-shadow: 0 0 20px rgba(59, 130, 246, 0.4);
+        }
+
+        .brand-logo img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .brand span {
+            color: #3B82F6;
         }
 
         .nav-menu {
@@ -302,22 +324,26 @@
             background: linear-gradient(135deg, rgba(59, 130, 246, 0.15), rgba(34, 197, 94, 0.1));
             border: 2px solid rgba(59, 130, 246, 0.3);
             border-radius: 20px;
-            padding: 3rem 2rem;
+            padding: 2.5rem 2rem;
             text-align: center;
             box-shadow: 0 20px 60px rgba(59, 130, 246, 0.3), 0 0 80px rgba(59, 130, 246, 0.1);
         }
 
-        .athlete-silhouette {
-            width: 200px;
-            height: 200px;
-            background: linear-gradient(135deg, #3B82F6, #22c55e);
-            border-radius: 50%;
-            margin: 0 auto 1rem;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 5rem;
-            box-shadow: 0 10px 40px rgba(59, 130, 246, 0.4);
+        .hero-photo {
+            width: 230px;
+            height: 230px;
+            border-radius: 24px;
+            overflow: hidden;
+            border: 3px solid rgba(59, 130, 246, 0.6);
+            margin: 0 auto 1.5rem;
+            box-shadow: 0 15px 45px rgba(59, 130, 246, 0.35), 0 0 60px rgba(34, 197, 94, 0.25);
+        }
+
+        .hero-photo img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            filter: contrast(1.05) saturate(1.1);
         }
         
         /* ============================
@@ -544,21 +570,31 @@
         }
 
         .transformation-img {
-            aspect-ratio: 1;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 3rem;
-            font-weight: 800;
+            aspect-ratio: 3 / 4;
             position: relative;
+            overflow: hidden;
+            border: 2px solid rgba(255, 255, 255, 0.08);
         }
 
-        .transformation-img.before {
-            background: linear-gradient(135deg, rgba(239, 68, 68, 0.25), rgba(220, 38, 38, 0.25));
+        .transformation-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.6s ease;
         }
 
-        .transformation-img.after {
-            background: linear-gradient(135deg, rgba(59, 130, 246, 0.3), rgba(34, 197, 94, 0.25));
+        .transformation-card:hover .transformation-img img {
+            transform: scale(1.05);
+        }
+
+        .transformation-img.before::after,
+        .transformation-img.after::after {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(180deg, rgba(0, 0, 0, 0) 40%, rgba(15, 17, 21, 0.55));
+            pointer-events: none;
+            z-index: 1;
         }
 
         .transformation-label {
@@ -571,6 +607,7 @@
             font-size: 0.9rem;
             font-weight: 700;
             border: 1px solid rgba(255, 255, 255, 0.1);
+            z-index: 2;
         }
 
         .transformation-desc {
@@ -1000,7 +1037,12 @@
     <header class="header">
         <div class="container">
             <nav class="nav-container">
-                <a href="#" class="brand">دکتر حامد جولازاده</a>
+                <a href="#" class="brand">
+                    <span class="brand-logo">
+                        <img src="https://images.unsplash.com/photo-1508214751196-bcfd4ca60f91?auto=format&fit=crop&w=200&q=80" alt="لوگوی شخصی دکتر حامد جولازاده" loading="lazy">
+                    </span>
+                    <span>دکتر حامد جولازاده</span>
+                </a>
                 
                 <ul class="nav-menu">
                     <li><a href="#about">درباره من</a></li>
@@ -1048,7 +1090,9 @@
                 
                 <div class="hero-image fade-in">
                     <div class="hero-card">
-                        <div class="athlete-silhouette">💪</div>
+                        <div class="hero-photo">
+                            <img src="https://images.unsplash.com/photo-1534367610401-9f5ed68180aa?auto=format&fit=crop&w=600&q=80" alt="مربی بدنسازی در حال تمرین" loading="lazy">
+                        </div>
                         <h3>تبدیل علمی بدن</h3>
                         <p>از مبتدی تا حرفه‌ای</p>
                     </div>
@@ -1225,11 +1269,11 @@
                     <div class="transformation-images">
                         <div class="transformation-img before">
                             <span class="transformation-label">قبل</span>
-                            🏃
+                            <img src="https://images.unsplash.com/photo-1487412720507-e7ab37603c6f?auto=format&fit=crop&w=600&q=80" alt="وضعیت قبل از شروع برنامه تمرینی" loading="lazy">
                         </div>
                         <div class="transformation-img after">
                             <span class="transformation-label">بعد</span>
-                            💪
+                            <img src="https://images.unsplash.com/photo-1518611012118-696072aa579a?auto=format&fit=crop&w=600&q=80" alt="نتیجه بعد از برنامه تمرینی" loading="lazy">
                         </div>
                     </div>
                     <div class="transformation-desc">
@@ -1242,11 +1286,11 @@
                     <div class="transformation-images">
                         <div class="transformation-img before">
                             <span class="transformation-label">قبل</span>
-                            🙍
+                            <img src="https://images.unsplash.com/photo-1452570053594-1b985d6ea890?auto=format&fit=crop&w=600&q=80" alt="عکس قبل از افزایش حجم" loading="lazy">
                         </div>
                         <div class="transformation-img after">
                             <span class="transformation-label">بعد</span>
-                            🦸
+                            <img src="https://images.unsplash.com/photo-1502323777036-f29e3972d82f?auto=format&fit=crop&w=600&q=80" alt="عکس بعد از افزایش حجم" loading="lazy">
                         </div>
                     </div>
                     <div class="transformation-desc">
@@ -1259,11 +1303,11 @@
                     <div class="transformation-images">
                         <div class="transformation-img before">
                             <span class="transformation-label">قبل</span>
-                            😰
+                            <img src="https://images.unsplash.com/photo-1549476464-37392f717541?auto=format&fit=crop&w=600&q=80" alt="وضعیت قبل از کاهش وزن" loading="lazy">
                         </div>
                         <div class="transformation-img after">
                             <span class="transformation-label">بعد</span>
-                            😎
+                            <img src="https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=600&q=80" alt="وضعیت پس از کاهش وزن" loading="lazy">
                         </div>
                     </div>
                     <div class="transformation-desc">
@@ -1276,11 +1320,11 @@
                     <div class="transformation-images">
                         <div class="transformation-img before">
                             <span class="transformation-label">قبل</span>
-                            🤔
+                            <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&w=600&q=80" alt="پیش از شروع فرم‌دهی" loading="lazy">
                         </div>
                         <div class="transformation-img after">
                             <span class="transformation-label">بعد</span>
-                            🔥
+                            <img src="https://images.unsplash.com/photo-1524504388940-b1c1722653e1?auto=format&fit=crop&w=600&q=80" alt="نتیجه پس از فرم‌دهی" loading="lazy">
                         </div>
                     </div>
                     <div class="transformation-desc">
